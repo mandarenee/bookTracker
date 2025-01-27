@@ -15,7 +15,7 @@ books = Book.create([
     },
     {
         name: 'Project Hail Mary',
-        author: 'Anyd Weir'
+        author: 'Andy Weir'
     }
 ])
 
