@@ -1,24 +1,17 @@
-# README
+# Book Tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**_W.I.P!_**
 
-Things you may want to cover:
+This application is meant to keep track of books I've read, books I want to read, and how I've rated them.
 
-* Ruby version
+I do hope to make this usable and have some future plans for the app. But for now, it's a WIP to have a public project to demonstrate some of my capabilities.
 
-* System dependencies
+I'll continue updating this README as I add new features.
 
-* Configuration
+This project is single project that uses Ruby on Rails as the backend and React built in the same repo as the frontend.
 
-* Database creation
+Quick look at what technologies are used
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Ruby on Rails
+- React
+- JSS through Material UI styled components
