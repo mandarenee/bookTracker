@@ -2,9 +2,16 @@ import React, {useState, useEffect } from 'react'
 import BookItem from './BookItem'
 import axios from 'axios'
 import { withStyles } from '@material-ui/core/styles'
+import { FormControl, TextField } from '@material-ui/core'
 
 const styles = {
     booksContainer: {
+        width: '1200px',
+        maxWidth: '90%',
+        margin: '0 auto',
+        display: 'flex',
+        padding: '3% 0',
+
         "& li:first-child": {
             background: 'var(--color-1)',
             color: 'var(--off-white)',
@@ -26,11 +33,15 @@ const styles = {
             listStyle: 'none'
         }
     },
+    columnOne: {
+        width:'75%',
+    }
 }
 
 const Books = (props) => {
     const [books, setBooks] = useState([]);
-    const { classes } = props
+    const [book, setBook] = useState({});
+    const { classes } = props;
 
     useEffect(() => {
         axios.get('/api/v1/books.json')
@@ -44,15 +55,18 @@ const Books = (props) => {
         return (
             <BookItem 
                 key={ book.attributes.name }
-                attributes={ book.attributes }
+                book={ book.attributes }
+                bookId={book.id}
             />
         )
     })
 
     return (
         <div className={ classes.booksContainer }>
-            <h1>Books</h1>
-            <ul>{book_list}</ul>
+            <div className={ classes.columnOne}>
+                <h1>Books</h1>
+                <ul>{book_list}</ul>
+            </div>
         </div>
     )
 }

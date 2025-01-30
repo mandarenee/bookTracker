@@ -25,12 +25,33 @@ body {
 }
 header {
     background: var(--off-white);
-    text-align: center;
     padding: 1px;
+}
+header > nav {
+    width: 1200px;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 16px 0 0;
+}
+header > nav > a {
+    text-align:left;
+    margin:12px 0 0 12px;
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--color-1);
 }
 header > p {
     font-size: clamp(32px, 3vw, 50px);
     font-weight: bold;
+    text-align:center;
+}
+button {
+    padding: 12px 30px;
+    background: var(--color-1);
+    color: var(--off-white);
+    font-weight: 600;
+    font-size: 18px;
+    border: none;
 }
 footer {
     height: 100%;

@@ -2,6 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import Book from "./Book/Book";
 import Books from "./Books/Books";
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 // Clear the existing HTML content
 document.body.innerHTML = '<div id="app"></div>';
@@ -9,11 +10,17 @@ document.body.innerHTML = '<div id="app"></div>';
 // Render your React component instead
 const root = createRoot(document.getElementById("app"));
 root.render(
-    <>
+    <BrowserRouter>
         <header>
+            <nav>
+                <Link to={'/'}>Home</Link>
+            </nav>
             <p>Book Tracker</p>
         </header>
-        <Books/>
+        <Routes>
+            <Route path="/" element={<Books />} />
+            <Route path="/books/:id" element={<Book />} />
+        </Routes>
         <footer>
             <div className="footer-info">
                 <p>
@@ -40,5 +47,6 @@ root.render(
                 </div>
             </div>
         </footer>
-    </>
+    
+    </BrowserRouter>
 );
