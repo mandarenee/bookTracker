@@ -40,6 +40,7 @@ const styles = {
 
 const Books = (props) => {
     const [books, setBooks] = useState([]);
+    const [formVisible, setFormVisible] = useState(false);
     const [book, setBook] = useState({});
     const { classes } = props;
 
@@ -61,11 +62,65 @@ const Books = (props) => {
         )
     })
 
+    const handleFormVisibilty = () => {
+        setFormVisible(true)
+    }
+
+    const handleChange = (event) => {
+        const target = event.target
+        const {value, name} = target
+
+        let tempBook = Object.assign({}, book)
+        tempBook[name] = value
+
+        setBook(tempBook)
+    }
+
+    const handleSave = () => {
+        console.log("Save")
+    }
+
     return (
         <div className={ classes.booksContainer }>
             <div className={ classes.columnOne}>
                 <h1>Books</h1>
                 <ul>{book_list}</ul>
+            </div>
+            <div className={ classes.columnTwo}>
+                <button className="button" onClick={handleFormVisibilty}>Push it</button>
+                {formVisible &&
+                    <div>
+                        <FormControl>
+                            <TextField 
+                                name='title'
+                                label='Title'
+                                onChange={ handleChange }
+                            />
+                            <TextField 
+                                name='author'
+                                label='Author'
+                                onChange={ handleChange }
+                            />
+                            {/* <TextField 
+                                name='rating'
+                                label='Rating'
+                                type='number'
+                                InputProps={{
+                                    inputProps: {
+                                        min: 1,
+                                        max: 5
+                                    }
+                                }}
+                                onChange={ handleChange }
+                            /> */}
+
+                            <button onClick={ handleSubmit }
+                                className={ classes.button }>
+                                Save Book
+                            </button>
+                        </FormControl>
+                    </div>
+                }
             </div>
         </div>
     )
